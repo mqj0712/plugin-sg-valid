@@ -18,20 +18,25 @@ public class ValidPlugin implements PluginEntry {
   public void init(Environment environment, PluginConfig config) {
     List<FilterRule> filtersRules = config.getBySection("Methods");
     for (FilterRule rule : filtersRules) {
-      if (rule.getType() != RuleType.EQUAL) {
-        continue;
-      }
       String ruleStr = rule.getRule();
       String[] methodInfo = ruleStr.split("\\|", 3);
       if (methodInfo.length != 3) {
         DebugInfo.output("Invalid configuration: " + rule
             + ", skipped. should be <clsname>|<methodname>|<method desc");
       }
-      DebugInfo.debug(
-          String.format("add ValidTransformer for %s %s %s", methodInfo[0], methodInfo[1],
-              methodInfo[2]));
-      transformers.add(new ValidationTransformer(methodInfo[0].trim(), methodInfo[1].trim(),
-          methodInfo[2].trim()));
+      String className = methodInfo[0].trim();
+      String methodName = methodInfo[1].trim();
+      String methodDesc = methodInfo[2].trim();
+
+      switch (rule.getType()){
+        case EQUAL:
+          transformers.add(new ValidationTransformer(className, methodName, methodDesc));
+          break;
+        case REGEXP:
+          transformers.add(new ValidationManagerTransformer(className, methodName, methodDesc));
+          break;
+        default:
+      }
     }
   }
 
