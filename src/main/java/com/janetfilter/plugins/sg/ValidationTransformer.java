@@ -7,7 +7,9 @@ import com.janetfilter.core.plugin.MyTransformer;
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.Opcodes;
-import jdk.internal.org.objectweb.asm.tree.*;
+import jdk.internal.org.objectweb.asm.tree.ClassNode;
+import jdk.internal.org.objectweb.asm.tree.InsnNode;
+import jdk.internal.org.objectweb.asm.tree.MethodNode;
 
 
 public class ValidationTransformer implements MyTransformer {
@@ -26,6 +28,8 @@ public class ValidationTransformer implements MyTransformer {
     this.className = className;
     this.methodName = methodName;
     this.methodDesc = methodDesc;
+    DebugInfo.debug(String.format("transformer created: %s.%s(%s)", this.className, this.methodName,
+        this.methodDesc));
   }
 
   @Override
