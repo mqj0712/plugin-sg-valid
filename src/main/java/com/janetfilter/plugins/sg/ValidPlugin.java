@@ -52,7 +52,7 @@ public class ValidPlugin implements PluginEntry {
 
   @Override
   public String getVersion() {
-    return "v1.0.0";
+    return "v1.1.0";
   }
 
   @Override

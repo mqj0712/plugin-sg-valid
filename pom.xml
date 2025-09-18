@@ -10,9 +10,10 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <ow2.asm.version>9.8</ow2.asm.version>
   </properties>
   <build>
-    <finalName>plugin-sg-valid-${version}</finalName>
+    <finalName>plugin-sg-valid-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -72,6 +73,16 @@
       <artifactId>ja-netfilter</artifactId>
       <version>2022.2.0</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>${ow2.asm.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-tree</artifactId>
+      <version>${ow2.asm.version}</version>
     </dependency>
   </dependencies>
 </project>

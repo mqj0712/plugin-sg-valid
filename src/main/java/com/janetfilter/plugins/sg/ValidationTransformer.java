@@ -1,15 +1,15 @@
 package com.janetfilter.plugins.sg;
 
-import static jdk.internal.org.objectweb.asm.Opcodes.ASM5;
+import static org.objectweb.asm.Opcodes.ASM5;
 
 import com.janetfilter.core.commons.DebugInfo;
 import com.janetfilter.core.plugin.MyTransformer;
-import jdk.internal.org.objectweb.asm.ClassReader;
-import jdk.internal.org.objectweb.asm.ClassWriter;
-import jdk.internal.org.objectweb.asm.Opcodes;
-import jdk.internal.org.objectweb.asm.tree.ClassNode;
-import jdk.internal.org.objectweb.asm.tree.InsnNode;
-import jdk.internal.org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.InsnNode;
+import org.objectweb.asm.tree.MethodNode;
 
 
 public class ValidationTransformer implements MyTransformer {
